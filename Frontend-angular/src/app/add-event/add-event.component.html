@@ -1,0 +1,109 @@
+<section id="main-content">
+  <section class="wrapper">
+
+    <div class="row div-row">
+      <div class="col-md-12">
+        <a [routerLink]="['/calendar']">
+          <div class="back-label"> < Back </div>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="main-container">
+
+
+
+    <div class="row div-row">
+      <div class="col col-title">
+        <div class="create-event-title">Create Event</div>
+      </div>
+    </div>
+
+
+        <form #f="ngForm" (ngSubmit)="addEvent(f.value)">
+
+          <div class="row f-row">
+            <div class="col-md-5 col-grid">
+              <label>Title:</label>
+              <input type="text" name="eventTitle" ngModel required #n="ngModel">
+              <div *ngIf="n.invalid && n.touched">
+                Title field is required.
+              </div>
+            </div>
+            <div class="col-md-7 col-grid">
+              <label>Description:</label>
+              <input type="text" name="eventDescription" ngModel #p="ngModel">
+            </div>
+
+          </div>
+
+
+
+          <div class="row">
+            <div class="col-md-5 col-grid">
+              <label>Date:</label>
+              <input type="date" name="eventDate" ngModel #d="ngModel">
+              <div *ngIf="d.invalid && d.touched">
+                Date Field is required
+              </div>
+            </div>
+            <div class="col-md-7 col-grid">
+              <label>Location:</label>
+              <input type="text" name="eventLocation" ngModel #l="ngModel">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-5 col-grid">
+              <label>Start Time:</label>
+              <input type="text" name="eventStartTime" ngModel required #de="ngModel">
+
+            </div>
+
+            <div class="col-md-7 col-grid">
+              <label>End Time:</label>
+              <input type="text" name="eventEndTime" ngModel required #e="ngModel">
+
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-12 col-grid">
+              <label>Participants:</label>
+              <!--   <input type="text" name="eventParticipants" ngModel #e="ngModel" multiple>-->
+              <ng-select
+                [items]="usersList"
+                [multiple]="true"
+                bindLabel="firstname"
+                [closeOnSelect]="false"
+                bindValue="_id"
+                [(ngModel)]="selectedItem"
+                [ngModelOptions]="{standalone: true}"
+              >
+                <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+  <span>
+    <input class="custom-checkbox" id="item-{{index}}" type="checkbox" [ngModel]="item$.selected" [ngModelOptions]="{standalone: true}"/>
+    <span class="text-ng-option"> {{item.firstname}} {{item.lastname}}</span>
+  </span>
+                </ng-template>
+              </ng-select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-10">
+              <input type="submit" value="Add" [disabled]="f.invalid">
+
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+
+
+
+
+  </section>
+</section>

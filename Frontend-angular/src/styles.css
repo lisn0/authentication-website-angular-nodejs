@@ -1,0 +1,178 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+div.Forum{
+   margin-left: 500px;
+   margin-top: 30px;
+}
+
+
+.parent {
+    border: 1px solid black;
+    margin: 1rem;
+    padding: 2rem 2rem;
+    text-align: center;
+  }
+  .child {
+    display: inline-block;
+    border: 1px solid red;
+    padding: 1rem 1rem;
+    vertical-align: middle;
+  }
+  #collapseOne{
+    min-height:60px
+}
+
+th{
+    background-color:#22242a;
+   
+
+
+}
+.panel{
+    background-color: rgb(255, 255, 255);
+    width:900px;
+    
+}
+
+section{
+
+
+overflow: hidden;
+
+   
+
+     
+}
+
+button{
+    background-color: #4ECDC4;
+    border-color: #4ECDC4;
+
+}
+
+div.picture2{
+    width: 400px;
+    height:400px;
+    margin-left: 250px;
+    
+}
+
+#section2{
+
+    margin-top: -90px;
+margin-left: 12px;
+    
+   
+}
+
+div.normal{
+    
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
+    width: 400px;
+}
+
+div.NormalC{
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
+    width: 400px;
+
+}
+div.normal2{
+    
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
+    width: 400px;
+}
+
+div.picture{
+    
+    width: 800px;
+    height: 600px;
+    align-content: center;
+  
+}
+
+img{
+   width:inherit; 
+   height: inherit;
+}
+
+div.upload{
+   
+    
+
+margin-bottom: -10px;
+
+
+}
+div.titlePost{
+    width: 100px;
+    margin-left: 10px;
+
+}
+
+div.contentPost{
+    width: 100px;
+    margin-left: 10px;
+}
+
+div.emojiP{
+    margin-left: 0px;
+    margin-top: -5px;
+    font-size: 18px;
+}
+
+input#tag{
+    display: none;
+
+
+}
+
+div.emojiP2{
+    margin-left: 10px;
+    margin-top: -38px;
+}
+
+input#tagA{
+    display: none;
+}
+
+div.Camera{
+    margin-top: 5px;
+}
+
+div.picture{
+    margin-left: 38px;
+}
+
+div.normal2{
+    font-size: 20px;
+    color: rgb(132, 132, 221);
+}
+
+div.normal{
+    font-weight: bolder;
+    color: rgb(211, 193, 193);
+}
+
+div.normal3{
+    color: rgb(220, 204, 204);
+}
+
+table{
+
+    border-radius: 1em;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+
+
+div.main{
+    margin-left: 10px;
+}

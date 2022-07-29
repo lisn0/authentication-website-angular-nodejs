@@ -1,0 +1,226 @@
+<div class="main">
+    <section>
+    <div  class="displayposts">
+    <table class="table" >
+        <thead>
+    <tr>
+       <th style="font-size: 16px; font-weight: bold; color: rgb(232, 232, 242);">
+        
+        News Feed <i style="font-size: 20px;" class="fa fa-newspaper-o"></i>
+        </th>
+        
+    <tr>
+    </thead>
+    <tbody  *ngFor="let l of list">
+        <tr>
+            <th>
+              
+            <div class="normal2">Topic : {{l.title}}</div> 
+             <div style="margin-left:630px;margin-top: -30px;">
+             <button style=" background-color: #4ECDC4;border-color: #4ECDC4;" class="btn btn-warning" *ngIf="userId===l?.author._id" (click)="deletePost(l)"><i class="fa fa-trash" ></i></button>
+             <button style=" background-color: #4ECDC4;border-color: #4ECDC4;" class="btn btn-warning"  (click)="getdata(l._id)" *ngIf="userId===l?.author._id"   data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-edit"></i></button>
+             <button style=" background-color: #4ECDC4;border-color: #4ECDC4;" class="btn btn-primary" (click)="like(l)"  [disabled]="l.liked==true"><i class="fa fa-thumbs-up"></i></button>
+             <button style=" background-color: #4ECDC4;border-color: #4ECDC4;" class="btn btn-primary" (click)="dislike(l); " [disabled]="l.liked==false || l.likes==0"><i class="fa fa-thumbs-down"></i></button>
+             <button style=" background-color: #4ECDC4;border-color: #4ECDC4;" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter1" (click)="getdata(l._id)"><i class="fa fa-comment" ></i></button>
+             <button style=" background-color: #4ECDC4;border-color: #4ECDC4" class="btn btn-warning" (click)="contact()"><i class="fa fa-envelope-o"></i></button>
+            </div>
+             <br>
+            
+                     
+            <div class="normal">{{l.content}}</div><br>
+            <div  class="picture" *ngIf="l.image"><img  src="http://localhost:3000/images/{{l.image}}"></div> 
+             
+           <div class="normal3"> Posted by <label title="{{l.author.email}}" style="font-weight: bold;font-size: 16px;">{{l.author.firstname}} {{l.author.lastname}}</label> on
+             {{l.created|date}} {{l.created|date:'short'}}<br></div>
+            <div style="margin-left: 850px;"><i style="color: rgb(85, 85, 211);" class="fa fa-thumbs-up"></i>{{l.likes}}</div>
+            
+             </th>
+         
+          
+    
+           
+             
+            
+         
+         
+         
+            
+     <tr>
+            
+             
+    
+    
+       
+         
+        
+        
+        
+            <div *ngFor="let c of listB; let i=index">
+                <div  class="panel" style="margin-top: 10px;"   *ngIf="c.article==l._id"> 
+                    <div></div>
+                    <div></div>
+                    <div class="NormalC" style="margin-left: 5px ; width: 200px; display: block;"><p style="font-size:medium;">{{c.comment}}</p></div>
+                    <div  class="picture2" *ngIf="c.imageC"><img  src="http://localhost:3000/images/{{c.imageC}}"></div> 
+    
+                <div style="margin-left:730px ; margin-top: -30px;">
+                    <button style=" background-color: #4ECDC4;border-color: #4ECDC4;" class="btn btn-danger" *ngIf="userId==c.author._id" data-toggle="modal" data-target="#exampleModalCenter2"  (click)="getdata(c._id)"><i class="fa fa-edit"></i></button>
+                    <button style=" background-color: #4ECDC4;border-color: #4ECDC4;" class="btn btn-danger" *ngIf="userId==c.author._id" (click)="deletecomment(c)"><i class="fa fa-trash"></i> </button>
+                    <button style=" background-color: #4ECDC4;border-color: #4ECDC4;" class="btn btn-primary" (click)="likec(c);" [disabled]="c.liked==true"><i class="fa fa-thumbs-up"></i></button>
+                    <button style=" background-color: #4ECDC4;border-color: #4ECDC4;" class="btn btn-primary"  (click)="dislikec(c)" [disabled]="c.liked==false || c.like==0"><i class="fa fa-thumbs-down"></i></button>
+    
+                </div>
+    
+    
+                    <div> Commented on {{c.created|date:'short'}} by <label style="font-weight:bold ;font-size: medium;">{{c.author.firstname}} {{c.author.lastname}}</label></div>
+                    <div style="margin-left:856px ;"><i class="fa fa-thumbs-up"></i>  {{c.like}}</div>
+                    
+                  
+                       
+                    
+                </div>
+            
+            </div>
+        
+      
+        </tr>
+    </tbody>
+    
+    
+    
+    
+    
+    </table>
+    
+    
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header" style="background-color:#22242a;">
+              <h5 class="modal-title" id="exampleModalLongTitle">Update post</h5>
+              <button style="color: azure;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            
+            <form #f="ngForm" (ngSubmit)="updatepost(f)">
+                
+                <br>
+                <div style="margin-left:50px ;">
+                    
+                    <input  style="width: 400px; border-radius: 10px; margin-bottom: 10px;" required ngModel #c="ngModel" name="content" class="form-control form-control-lg" type="text" placeholder="Content">
+                    
+                </div>
+                
+                <div class="modal-footer">
+           
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Save changes</button>
+            </div>
+    
+        </form>
+    
+          </div>
+        </div>
+      </div>
+    
+      
+    
+      <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header" style="background-color: #22242a;">
+              <h5 class="modal-title" id="exampleModalLongTitle">Add your comment</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            
+          
+                
+            <form #fo="ngForm">
+    
+                <div style="margin-bottom:20px ; margin-left:10px;">
+                <input style="width: 400px; border-radius: 10px; margin-top: 10px;" required ngModel #c="ngModel" [(ngModel)]="co" name="comment" class="form-control form-control-lg" type="text" placeholder="Type your comment here">
+                <div class="Camera"><label for="tagA" ><i style="font-size: 20px;" class="fa fa-camera"></i></label></div>
+                <input id="tagA" value="" type="file" ngModel="imageC" name="file" (change)="OnselectImage($event)" />
+                <div class="emojiP2"> <button  style="background: transparent;font-size: 20px;border-color: transparent;outline: none;" (click)="isEmojiPcikerVisible = !isEmojiPcikerVisible"     class="btn btn-secondary">😍</button></div>
+               <div> 
+    
+                <emoji-mart [darkMode]="true" class="emoji-mart"  *ngIf="isEmojiPcikerVisible" (emojiSelect)="addEmoji($event)" title="Choose your emoji"></emoji-mart>   
+              </div> 
+              
+    
+                </div>
+                <div> 
+    
+                          
+                        </div>   
+    
+            
+                
+        
+        
+            
+       
+            
+            <div class="modal-footer">
+           
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary"  (click)="addc(fo.value)" [disabled]="fo.invalid">Save changes</button>
+            </div>
+          </form>
+    
+        
+    
+          </div>
+        </div>
+      </div>
+    
+    
+    
+      <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header" style="background-color: #22242a;">
+              <h5 class="modal-title" id="exampleModalLongTitle">Add your comment</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            
+          
+                
+            <form #form="ngForm">
+    
+                <div style="margin-bottom:20px ; margin-left:10px;">
+                <input style="width: 400px; border-radius: 10px; margin-top: 10px;" required ngModel #c="ngModel" name="comment" class="form-control form-control-lg" type="text" placeholder="Modification on your comment here">
+                </div>
+            </form>
+                
+        
+        
+            
+       
+            
+            <div class="modal-footer">
+           
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" [disabled]="form.invalid" (click)="updateComment(form)">Save changes</button>
+            </div>
+    
+        
+    
+          </div>
+        </div>
+      </div>
+    
+    
+    
+    
+    </div>
+    </section>
+    
+    
+    </div>
+              
+    

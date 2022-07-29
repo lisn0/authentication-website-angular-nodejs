@@ -1,0 +1,99 @@
+.addevent{
+  margin: auto;
+  padding-left: 15%;
+  padding-top: 5%;
+  height: 50px;
+  width: 500px;
+
+}
+input[type=text],input[type=date],ng-select{
+  width: 350px;
+  padding: 5px 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit], input[type=submit]:hover {
+  width: 92px;
+  margin: 8px 0;
+  cursor: pointer;
+  text-align: center;
+  color: #f2f2f2;
+  font-size: 12px;
+  -webkit-border-radius: 4px;
+  border: 1px solid #64c3c2 !important;
+  padding: 8px 15px;
+  margin-left: 80%;
+  background: #4ECDC4;
+  margin-top: 16px;
+}
+
+label{
+  font-weight: bold;
+  font-size: 15px;
+  color: black;
+}
+
+.container-add-event{
+  width: auto;
+}
+.div-row{
+  width: inherit;
+}
+.col-grid{
+  display: grid;
+}
+.main-container{
+  padding-left: 75px;
+  padding-bottom: 15px;
+}
+.f-row{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+:host>>> .ng-select{
+  background-color: white;
+}
+:host>>> .ng-dropdown-panel{
+  background-color: white;
+  margin-top: inherit;
+  margin-left: -12px;
+  padding-left: 11px;
+  padding-top: 5px;
+  max-height: 100px;
+  overflow-y: scroll;
+}
+:host>>> .ng-value{
+  margin-right: 5px;
+  border: 0.5px solid #909090;
+  padding: 3px;
+  border-radius: 3px;
+}
+:host>>> .ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value .ng-value-icon{
+  margin-right: 5px;
+}
+.custom-checkbox{
+  margin-right: 15px;
+}
+.col-title{
+  padding-left: 15px;
+}
+.back-label{
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #1f1a10;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+.edit-event-title{
+  font-weight: 600;
+  height: 30px;
+  color: black;
+  font-size: 28px;
+  margin-bottom: 15px;
+}

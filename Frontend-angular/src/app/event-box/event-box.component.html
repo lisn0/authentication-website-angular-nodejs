@@ -1,0 +1,13 @@
+
+<div class="event-box">
+  <div class="event-title"><a [routerLink]="['/calendar/event/details/',eventId]">
+  {{event?.eventTitle}}
+  </a></div>
+  <span class="event-time">{{event?.eventStartTime}} - {{event?.eventEndTime}}</span>
+  <div style="width: 15px;height: 15px;"><img class="img-delete" src="assets/img/trash.png" width="2px" height="2px" *ngIf="userId===event?.eventCreator" (click)="deleteEvent(event)"><div>
+</div>
+
+
+
+
+

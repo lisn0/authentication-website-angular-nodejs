@@ -1,0 +1,44 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="container">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h2 class="h2">Users List</h2>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">username</th>
+        <th scope="col">firstname</th>
+        <th scope="col">lastname</th>
+        <th scope="col">Address</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Role</th>
+        <th scope="col">Blocked</th>
+        <th class="text-center" scope="col">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of Users; let i = index">
+        <th scope="row">{{user._id}}</th>
+        <td>{{user.username}}</td>
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.address}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.phoneNumber}}</td>
+        <td>{{user.role}}</td>
+        <td>{{user.blocked}}</td>
+        <td class="text-center">
+          <button class="btn btn-sm btn-primary" routerLink="/edituser/{{user._id}}">Edit</button>
+          <button class="btn btn-sm btn-danger" (click)="delete(user._id, i)">Delete</button>
+          <button class="btn btn-sm btn-danger" (click)="block(user._id)">Block</button>
+          <button class="btn btn-sm btn-danger" (click)="deblock(user._id)">deBlock</button>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

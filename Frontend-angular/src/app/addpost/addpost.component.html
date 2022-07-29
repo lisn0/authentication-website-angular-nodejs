@@ -1,0 +1,66 @@
+<section id="section2">
+
+  
+    <div class="addpost" style="margin-left:320px ; margin-top: 80px;">
+    
+    
+      <marquee style="font-size: 20px; font-weight: bold ;margin-right: 210px; ">Welcome to the TIMELINE forum 😁😁😁</marquee>
+    
+        <button style="margin-left: -10px; background-color: #64c3c2; border-color:#64c3c2 ;" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter3" >Click to add your post here !</button>
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    </section>
+    
+    
+    <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header" style="background-color: rgb(11, 10, 10);">
+              <h5 class="modal-title" id="exampleModalLongTitle">Add a post</h5>
+              <button  style="color: antiquewhite;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            
+          
+                
+                <form #f="ngForm" (ngSubmit)="addpost(f.value)">
+    
+    <br>
+                <div class="titlePost">
+                <input style="width: 400px; border-radius: 10px;" required ngModel #t="ngModel" name="title" class="form-control form-control-lg" type="text" placeholder="Title"></div><br>
+                <div class="contentPost"><input style="width: 400px;border-radius: 10px;"  required ngModel [(ngModel)]="c" name="content" class="form-control form-control-lg" type="text" placeholder="Content">
+                 </div>
+                <div class="emojiP"> <button  style="background: transparent;font-size: 20px;border-color: transparent;outline: none;" (click)="isEmojiPcikerVisible = !isEmojiPcikerVisible"     class="btn btn-secondary">😍</button>
+                <label for="tag"><i style="font-size: 20px;" class="fa fa-camera"></i></label>
+                </div> 
+                <div class="upload"> 
+                <input  id="tag" type="file" ngModel="image" class="form-control" name="file" style="margin-left:450px ; margin-top: -30px;" class="btn btn-secondary" (change)="selectImage($event)">
+                
+              </div>   
+              
+             
+                        
+                <emoji-mart [darkMode]="true" class="emoji-mart"  *ngIf="isEmojiPcikerVisible" (emojiSelect)="addEmoji($event)" title="Choose your emoji"></emoji-mart>          
+                        
+     
+            
+       
+            
+            <div class="modal-footer">
+           
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button class="btn btn-success" type="submit" value="post" [disabled]="f.invalid">Post</button>      
+            </div>
+          </form>
+        
+    
+          </div>
+        </div>
+      </div>
